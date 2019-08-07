@@ -1,3 +1,3 @@
-# typescript-tcnzgd
+# canvas-chessboard
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/typescript-tcnzgd)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/canvas-chessboard)
