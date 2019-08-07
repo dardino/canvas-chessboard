@@ -1,6 +1,6 @@
 // Import stylesheets
 import './style.less';
-import { Rotations, CanvasChessBoard, Figurine, Colors, BoardRank, BoardFile } from "./src/canvasChessBoard";
+import { Rotations, CanvasChessBoard, Figurine, Colors, BoardRank, BoardFile } from "./canvasChessBoard";
 
 const CELLCOLORS: [string, string] = ["#fff", "#C5CACA"];
 const PIECECOLORS: [string, string] = ["#fff", "#999"];
@@ -8,7 +8,8 @@ const FONT = "Arial";
 
 
 // Write TypeScript code!
-const appDiv: HTMLElement = document.getElementById('app');
+const appDiv = document.createElement("div");
+document.body.appendChild(appDiv);
 appDiv.classList.add("main");
 const wrapper: HTMLDivElement = document.createElement('div');
 wrapper.classList.add("wrapper");
@@ -16,8 +17,8 @@ const canvas: HTMLCanvasElement = document.createElement("canvas");
 appDiv.innerHTML = "";
 appDiv.appendChild(wrapper);
 wrapper.appendChild(canvas);
-var cb = new CanvasChessBoard(canvas, { CELLCOLORS, PIECECOLORS, FONT });
-canvas.addEventListener("selectcell", (e: CustomEvent) => {
+var cb = new CanvasChessBoard(canvas, { CELLCOLORS, PIECECOLORS, FONT, BORDER_SIZE: 1 });
+canvas.addEventListener<"selectcell">("selectcell", (e) => {
   console.log(e.detail);
 });
 cb.SetPieces([
@@ -42,5 +43,3 @@ cb.SetPieces([
   { figurine: Figurine.n, color: Colors.Black, loc: { row: BoardRank.R7, col: BoardFile.C }, rot: Rotations.Left },
   { figurine: Figurine.n, color: Colors.Black, loc: { row: BoardRank.R8, col: BoardFile.C }, rot: Rotations.TopLeft }
 ]);
-
-
