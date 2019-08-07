@@ -10,9 +10,12 @@ const FONT = "Arial";
 // Write TypeScript code!
 const appDiv: HTMLElement = document.getElementById('app');
 appDiv.classList.add("main");
+const wrapper: HTMLDivElement = document.createElement('div');
+wrapper.classList.add("wrapper");
 const canvas: HTMLCanvasElement = document.createElement("canvas");
 appDiv.innerHTML = "";
-appDiv.appendChild(canvas);
+appDiv.appendChild(wrapper);
+wrapper.appendChild(canvas);
 var cb = new CanvasChessBoard(canvas, { CELLCOLORS, PIECECOLORS, FONT });
 canvas.addEventListener("selectcell", (e: CustomEvent) => {
   console.log(e.detail);
