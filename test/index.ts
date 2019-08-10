@@ -4,7 +4,6 @@ import { Rotations, CanvasChessBoard, Figurine, Colors, BoardRank, BoardFile } f
 
 const CELLCOLORS: [string, string] = ["#fff", "#C5CACA"];
 const PIECECOLORS: [string, string] = ["#fff", "#333"];
-const FONT = "Arial";
 
 // Write TypeScript code!
 const appDiv = document.createElement("div");
@@ -16,7 +15,7 @@ const canvas: HTMLCanvasElement = document.createElement("canvas");
 appDiv.innerHTML = "";
 appDiv.appendChild(wrapper);
 wrapper.appendChild(canvas);
-var cb = new CanvasChessBoard(canvas, { CELLCOLORS, PIECECOLORS, FONT, BORDER_SIZE: 1 });
+var cb = new CanvasChessBoard(canvas, { CELLCOLORS, PIECECOLORS, BORDER_SIZE: 1 });
 canvas.addEventListener<"selectcell">("selectcell", (e) => {
   console.log(e.detail);
 });

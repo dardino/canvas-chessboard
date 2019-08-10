@@ -1,6 +1,6 @@
 {
-  "name": "typescript",
-  "version": "0.0.1",
+  "name": "canvas-chessboard",
+  "version": "0.0.2",
   "main": "./dist/main.bundle.js",
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",

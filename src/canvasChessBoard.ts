@@ -47,14 +47,14 @@ export enum BoardFile {
 }
 
 export enum Rotations {
-	NoRotation = 0, //    ↑
+	NoRotation = 0, //     ↑
 	TopRight = 45, //      ↗
 	Right = 90, //         →
 	BottomRight = 215, //  ↘
 	UpsideDown = 180, //   ↓
 	BottomLeft = -215, //  ↙
 	Left = -90, //         ←
-	TopLeft = -45 //      ↖
+	TopLeft = -45 //       ↖
 }
 
 export class CanvasChessBoard {
@@ -96,7 +96,6 @@ export class CanvasChessBoard {
 		private options: {
 			CELLCOLORS: [string, string];
 			PIECECOLORS: [string, string];
-			FONT: string;
 			BORDER_SIZE: number;
 		}
 	) {
