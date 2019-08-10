@@ -1,11 +1,17 @@
 {
   "name": "typescript",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./font_maker/build.js",
-  "dependencies": {
-    "canvg": "^2.0.0"
+  "version": "0.0.1",
+  "main": "./dist/main.bundle.js",
+  "license": "MIT",
+  "description": "Chessboard drawable into HTML5 canvas",
+  "author": {
+    "name": "Gabriele Brunori"
   },
+  "repository": {
+    "url": "https://github.com/dardino/canvas-chessboard.git",
+    "type": "git"
+  },
+  "dependencies": {},
   "devDependencies": {
     "@types/libxmljs": "^0.18.3",
     "clean-webpack-plugin": "^3.0.0",
