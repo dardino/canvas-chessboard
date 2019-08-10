@@ -1,14 +1,12 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "main": "./dist/canvasChessBoard.js",
-  "module": "./src/canvasChessBoard.js",
-  "esnext": "./src/canvasChessBoard.js",
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
-  "typings": "./build/canvasChessBoard.d.ts",
+  "typings": "./src/canvasChessBoard.d.ts",
   "files": [
-    "build",
+    "dist",
     "src"
   ],
   "author": {
