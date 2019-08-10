@@ -1,0 +1,12 @@
+@font-face {
+ font-family: 'chess-figurine';
+ font-style: normal;
+ font-weight: 400;
+ src: url('./chess-figurine.woff') format('woff'),
+      url('./chess-figurine.ttf') format('truetype'),
+      url('./chess-figurine.svg') format('svg'),
+      url('./chess-figurine.woff2') format('woff2');
+}
+.chess-icon {
+  font-family: chess-figurine;
+}

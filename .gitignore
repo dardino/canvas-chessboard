@@ -1,3 +1,11 @@
 node_modules
-src/*.js
+src/**/*.js
+src/**/*.d.ts
+src/**/*.map
+test/**/*.js
+font_maker/**/*.js
+font_maker/**/*.d.ts
+font_maker/**/*.map
 dist
+build
+
