@@ -1,6 +1,6 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./dist/canvasChessBoard.js",
   "module": "./src/canvasChessBoard.js",
   "esnext": "./src/canvasChessBoard.js",
@@ -9,7 +9,7 @@
   "typings": "./build/canvasChessBoard.d.ts",
   "files": [
     "build",
-    "dist"
+    "src"
   ],
   "author": {
     "name": "Gabriele Brunori"
