@@ -1,12 +1,16 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.3",
-  "main": "./dist/main.bundle.js",
-  "module": "./dist/main.bundle.js",
+  "version": "0.0.5",
+  "main": "./dist/canvasChessBoard.js",
+  "module": "./build/canvasChessBoard.js",
   "esnext": "./build/canvasChessBoard.js",
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
   "typings": "./build/canvasChessBoard.d.ts",
+  "files": [
+    "build",
+    "dist"
+  ],
   "author": {
     "name": "Gabriele Brunori"
   },

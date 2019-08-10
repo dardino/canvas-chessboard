@@ -8,4 +8,4 @@ font_maker/**/*.d.ts
 font_maker/**/*.map
 dist
 build
-
+*.tsbuildinfo

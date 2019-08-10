@@ -7,6 +7,7 @@ const {
 } = require('clean-webpack-plugin');
 
 module.exports = {
+    mode: "production",
     devtool: 'inline-source-map',
     devServer: {
         contentBase: './dist',
@@ -20,8 +21,12 @@ module.exports = {
         })
     ],
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: 'canvasChessBoard.js',
+        path: path.resolve(__dirname, 'dist'),
+        libraryTarget: 'umd',
+        globalObject: 'this',
+        // libraryExport: 'default',
+        library: 'canvas-chessboard'
     },
     module: {
         rules: [{
