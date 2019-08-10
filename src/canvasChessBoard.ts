@@ -245,3 +245,5 @@ export class CanvasChessBoard {
 		this.drawPieces(this.pieces);
 	}
 }
+
+export default CanvasChessBoard;

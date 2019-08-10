@@ -1,9 +1,12 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./dist/main.bundle.js",
+  "module": "./dist/main.bundle.js",
+  "esnext": "./build/canvasChessBoard.js",
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
+  "typings": "./build/canvasChessBoard.d.ts",
   "author": {
     "name": "Gabriele Brunori"
   },
@@ -29,7 +32,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "scripts": {
-    "build": "yarn build:font && webpack --mode production",
+    "build": "yarn build:font && webpack --mode production && tsc -b ./tsconfig.json",
     "build:font": "tsc -b ./font_maker/tsconfig.json && node ./font_maker/build.js",
     "start:dev": "webpack-dev-server"
   }
