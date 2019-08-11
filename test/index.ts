@@ -1,6 +1,6 @@
 // Import stylesheets
 import './style.less';
-import { Rotations, CanvasChessBoard, Figurine, Colors, BoardRank, BoardFile } from "../src/canvasChessBoard";
+import { Rotations, CanvasChessBoard, Figurine, Colors, BoardRank, BoardFile, FontGliphs } from "../src/canvasChessBoard";
 
 const CELLCOLORS: [string, string] = ["#fff", "#C5CACA"];
 const PIECECOLORS: [string, string] = ["#fff", "#333"];

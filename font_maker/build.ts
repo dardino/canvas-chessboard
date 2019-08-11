@@ -161,11 +161,11 @@ export class FontGenerator {
   private async CreateIconsTS() {
     let maxlen = this.glifi.reduce((max, f) => Math.max(max, f.descr.length), 0);
     var parts: string[] = ([] as string[])
-			.concat([`module FontGliphs {`])
+			.concat([`export module FontGliphs {`])
 			.concat(
 				this.glifi.map(g =>
 					[
-						`\texport const char_${prepare_name(g.descr, maxlen)} = '&#${g.code}';`,
+						`\texport const char_${prepare_name(g.descr, maxlen)} = '&#${g.code.toString(16)}';`,
 						`\texport const code_${prepare_name(g.descr, maxlen)} = ${g.code};`
 					].join("\t")
 				)

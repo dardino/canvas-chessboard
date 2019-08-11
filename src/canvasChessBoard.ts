@@ -1,5 +1,5 @@
 import "./canvasChessBoard.less";
-import FontGliphs from "./font/fonts";
+import { FontGliphs } from "./font/fonts";
 
 declare global {
 	type SelectCellEvent = CustomEvent<{ prev: BoardLocation | null; current: BoardLocation | null }>;
@@ -260,3 +260,4 @@ export class CanvasChessBoard {
 }
 
 export default CanvasChessBoard;
+export * from "./font/fonts";
