@@ -1,6 +1,6 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "./dist/canvasChessBoard.js",
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
