@@ -23,7 +23,7 @@ export enum Figurine {
 	r = FontGliphs.code_BR, // 0x265c, // R = 0x2656,
 	b = FontGliphs.code_BB, // 0x265d, // B = 0x2657,
 	n = FontGliphs.code_BN, // 0x265e, // N = 0x2658,
-	p = FontGliphs.code_BP, // 0x265f // P = 0x2659
+	p = FontGliphs.code_BP // 0x265f // P = 0x2659
 }
 export enum BoardRank {
 	R8 = 0,
@@ -60,16 +60,7 @@ export enum Rotations {
 export class CanvasChessBoard {
 	private PIECESTROKECOLORS: [string, string];
 
-	private static darkCells = [
-		0,1,0,1,0,1,0,1,
-		1,0,1,0,1,0,1,0,
-		0,1,0,1,0,1,0,1,
-		1,0,1,0,1,0,1,0,
-		0,1,0,1,0,1,0,1,
-		1,0,1,0,1,0,1,0,
-		0,1,0,1,0,1,0,1,
-		1,0,1,0,1,0,1,0,
-	];
+	
 
 	private cellSize: number = 0;
 	private fontSize: number = 0;
@@ -80,9 +71,15 @@ export class CanvasChessBoard {
 	private currentCell: BoardLocation | null = null;
 
 	private setSizes() {
-		this.cellSize = this.canvas.getBoundingClientRect().width / 4;
-		this.canvas.width = this.canvas.getBoundingClientRect().width * 2;
-		this.canvas.height = this.canvas.getBoundingClientRect().width * 2;
+		const brect = this.original.getBoundingClientRect();
+
+		this.cellSize = brect.width / 4;
+		this.canvas.width = brect.width * 2;
+		this.canvas.height = brect.width * 2;
+
+		this.original.height = this.canvas.height;
+		this.original.width = this.canvas.width;
+
 		this.fontSize = this.cellSize * 0.75;
 		this.offset = this.cellSize / 2;
 		this.fontStroke = this.cellSize / 120;
@@ -91,30 +88,36 @@ export class CanvasChessBoard {
 
 	private ctx: CanvasRenderingContext2D;
 
+	private canvas: HTMLCanvasElement;
+
 	constructor(
-		private canvas: HTMLCanvasElement,
+		private original: HTMLCanvasElement,
 		private options: {
 			CELLCOLORS: [string, string];
 			PIECECOLORS: [string, string];
 			BORDER_SIZE: number;
 		}
 	) {
-		this.PIECESTROKECOLORS = options.PIECECOLORS.slice().reverse() as [string, string];		
-		let ctx = canvas.getContext("2d");
+		this.PIECESTROKECOLORS = options.PIECECOLORS.slice().reverse() as [string, string];
+		this.original.classList.add("chessBoard");
+		window.addEventListener("resize", this.onResize);
+		this.original.addEventListener("click", this.onCanvasClick);
+
+		this.canvas = document.createElement("canvas");
+		let ctx = this.canvas.getContext("2d");
 		if (ctx == null) throw new Error("Context can not be null");
 		this.ctx = ctx;
-		this.canvas.classList.add("chessBoard");
-		window.addEventListener("resize", this.onResize);
-		this.canvas.addEventListener("click", this.onCanvasClick);
+
+		this.setSizes();
 	}
 
 	private onResize = () => this.Redraw();
 	private onCanvasClick = (e: MouseEvent) => this.canvasClick(e);
 
 	private canvasClick(e: MouseEvent) {
-		let rect = this.canvas.getBoundingClientRect();
-		let border = (rect.width - this.canvas.clientWidth) / 2;
-		let realsize = this.canvas.clientWidth / 8;
+		let rect = this.original.getBoundingClientRect();
+		let border = (rect.width - this.original.clientWidth) / 2;
+		let realsize = this.original.clientWidth / 8;
 		let col = Math.max(0, Math.min(7, Math.floor((e.x - border - rect.left) / realsize)));
 		let row = Math.max(0, Math.min(7, Math.floor((e.y - border - rect.top) / realsize)));
 		if (this.currentCell != null && this.currentCell.row == row && this.currentCell.col == col)
@@ -144,15 +147,26 @@ export class CanvasChessBoard {
 		requestAnimationFrame(() => {
 			this.setSizes();
 			this.drawBoard();
+			this.applyToOriginal();
 		});
+	}
+
+	private applyToOriginal() {
+		const ctxo = this.original.getContext("2d");
+		if (ctxo == null) return;
+		ctxo.drawImage(this.canvas, 0, 0, this.original.width, this.original.height);
 	}
 
 	private drawCell(row: number, col: number) {
 		this.ctx.save();
-		this.ctx.fillStyle = this.options.CELLCOLORS[CanvasChessBoard.darkCells[row * 8 + col]];
+		this.ctx.fillStyle = this.options.CELLCOLORS[this.darkCells(row, col)];
 		this.ctx.fillRect(this.cellSize * col, this.cellSize * row, this.cellSize, this.cellSize);
 		this.ctx.stroke();
 		this.ctx.restore();
+	}
+
+	private darkCells(row: number, col: number): number {
+		return col % 2 ? (row + 1) % 2 : row % 2;
 	}
 
 	private highlightingCurrentCell() {

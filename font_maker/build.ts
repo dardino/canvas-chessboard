@@ -240,7 +240,7 @@ export class FontGenerator {
 
 new FontGenerator({
   outDir: "../src/font",
-  startUnicode: 0xf000,
+  startUnicode: 0x265A,
   sourceDir: "../src/assets",
   prototypeFontFile: "./font.prototype.svg",
   cssPrefix: "chess-icon",

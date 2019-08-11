@@ -13,7 +13,10 @@ module.exports = {
         contentBase: './dist',
         hot: true
     },
-    entry: './src/canvasChessBoard.ts',
+    entry: {
+        'canvasChessBoard': './src/canvasChessBoard.ts',
+        'chess-figurine': './src/font/chess-figurine.css'
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
@@ -21,7 +24,7 @@ module.exports = {
         })
     ],
     output: {
-        filename: 'canvasChessBoard.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'umd',
         globalObject: 'this',
@@ -35,15 +38,16 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-            use: [{
+            use: //"file-loader"
+            [{
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: 'fonts/'
+                    outputPath: '/'
                 }
             }]
         }, {
-            test: /\.less$/,
+            test: /\.(le|c)ss$/,
             use: [{
                     loader: 'style-loader', // creates style nodes from JS strings
                 },
