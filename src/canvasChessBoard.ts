@@ -140,7 +140,6 @@ export class CanvasChessBoard {
 
 	public SetPieces(pieces: Array<Piece>) {
 		this.pieces = pieces;
-		this.Redraw();
 	}
 
 	public Redraw() {

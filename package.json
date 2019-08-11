@@ -1,6 +1,14 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.11",
+  "version": "0.0.12",
+  "bugs": {
+    "url": "https://github.com/dardino/canvas-chessboard"
+  },
+  "categories": [
+    "Other"
+  ],
+  "displayName": "Canvas ChessBoard",
+  "preview": true,
   "main": "./dist/canvasChessBoard.js",
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
