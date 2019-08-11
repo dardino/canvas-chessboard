@@ -5,6 +5,7 @@
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
   "typings": "./src/canvasChessBoard.d.ts",
+  "keywords": ["chess", "canvas", "board", "chessboard", "canvas-chessboard"],
   "files": [
     "dist",
     "src"
