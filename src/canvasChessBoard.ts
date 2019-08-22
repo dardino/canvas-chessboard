@@ -1,6 +1,5 @@
 import "./canvasChessBoard.less";
 import { FontGliphs } from "./font/fonts";
-
 declare global {
 	type SelectCellEvent = CustomEvent<{ prev: BoardLocation | null; current: BoardLocation | null }>;
 	interface HTMLCanvasElement {
@@ -207,7 +206,8 @@ export class CanvasChessBoard {
 		this.ctx.textAlign = "center";
 		this.ctx.textBaseline = "middle";
 		pieces.forEach(p => {
-			this.drawPiece(p);
+			if (p.loc)
+				this.drawPiece(p);
 		});
 	}
 
@@ -215,8 +215,10 @@ export class CanvasChessBoard {
 		this.ctx.save();
 		let adjust = 0; //this.fontStroke * 9;
 		const fig = String.fromCharCode(piece.figurine);
-		const _x = piece.loc.col * this.cellSize + this.offset;
-		const _y = piece.loc.row * this.cellSize + this.cellSize - this.offset;
+		let loc = piece.loc;
+		if (!loc) loc = { col: BoardFile.A, row: BoardRank.R1 };
+		const _x = loc.col * this.cellSize + this.offset;
+		const _y = loc.row * this.cellSize + this.cellSize - this.offset;
 		const shadowSize = this.fontStroke * 2;
 
 		this.ctx.fillStyle = this.options.PIECECOLORS[piece.color];
