@@ -1,6 +1,6 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "bugs": {
     "url": "https://github.com/dardino/canvas-chessboard"
   },
@@ -10,11 +10,11 @@
   "displayName": "Canvas ChessBoard",
   "preview": true,
   "main": "./dist/canvasChessBoard.js",
-  "esnext": "./modules/canvasChessBoard.js",
-  "module": "./modules/canvasChessBoard.js",
+  "esnext": "./modules/esnext/canvasChessBoard.js",
+  "module": "./modules/es2018/canvasChessBoard.js",
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
-  "typings": "./modules/canvasChessBoard.d.ts",
+  "typings": "./modules/esnext/",
   "keywords": [
     "chess",
     "canvas",
@@ -53,7 +53,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "scripts": {
-    "build": "yarn tsc -b ./src/tsconfig.esnext.json && webpack --mode production",
+    "build": "webpack --mode production && yarn tsc -b ./src/tsconfig.esnext.json && yarn tsc -b ./src/tsconfig.es2018.json ",
     "start:dev": "webpack-dev-server ./test --watch --mode development"
   }
 }

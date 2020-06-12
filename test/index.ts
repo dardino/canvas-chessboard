@@ -7,9 +7,9 @@ import {
   BoardFile,
 } from "../src/canvasChessBoard";
 
-import { GetConfig as GetScacchiPainterCfg } from "../src/presets/scacchipainter";
-import { GetConfig as GetProblemisteCfg } from "../src/presets/problemiste";
 import { GetConfig as GetChessFigurine } from "../src/presets/chessfigurine";
+
+import Configs from "../src/presets";
 
 const CELLCOLORS: [string, string] = ["#fff", "#C5CACA"];
 const PIECECOLORS: [string, string] = ["#fff", "#333"];
@@ -31,8 +31,8 @@ var cb = new CanvasChessBoard(canvas, {
   BORDER_SIZE: 1,
 });
 
-cb.AddFontConfig("ScacchiPainter", GetScacchiPainterCfg());
-cb.AddFontConfig("Problemiste", GetProblemisteCfg());
+cb.AddFontConfig("ScacchiPainter", Configs.ScacchiPainter);
+cb.AddFontConfig("Problemiste", Configs.ScacchiPainter);
 cb.AddFontConfig("ChessFigurine", GetChessFigurine());
 
 canvas.addEventListener<"selectcell">("selectcell", (e) => {

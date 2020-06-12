@@ -160,6 +160,11 @@ export class CanvasChessBoard {
     }
   ) {
     this.currentFigurine = this.figurineCfgs.Default;
+    this.original.style.display = "block";
+    this.original.style.width = "100%";
+    this.original.style.height = "100%";
+    this.original.style.cursor = "pointer";
+    this.original.style.boxSizing = "border-box";
 
     this.PIECESTROKECOLORS = options.PIECECOLORS.slice().reverse() as [
       string,
@@ -318,15 +323,23 @@ export class CanvasChessBoard {
     const figBackground =
       this.currentFigurine.background?.[piece.figurine] ??
       this.currentFigurine.black[piece.figurine];
-    this.drawPieceColor(figBackground, this.options.PIECECOLORS[0], this.PIECESTROKECOLORS[0]);
+    this.drawPieceColor(
+      figBackground,
+      this.options.PIECECOLORS[0],
+      this.PIECESTROKECOLORS[0]
+    );
   }
 
   private drawPieceFg(piece: Piece) {
     const figBackground = this.currentFigurine[piece.color][piece.figurine];
-    this.drawPieceColor(figBackground, this.options.PIECECOLORS[1], this.PIECESTROKECOLORS[1]);
+    this.drawPieceColor(
+      figBackground,
+      this.options.PIECECOLORS[1],
+      this.PIECESTROKECOLORS[1]
+    );
   }
 
-  private drawPieceColor(figurine: string, fill: string, stroke: string){
+  private drawPieceColor(figurine: string, fill: string, stroke: string) {
     this.ctx.lineWidth = this.fontStroke * 3;
     this.ctx.fillStyle = fill;
     this.ctx.strokeStyle = stroke;

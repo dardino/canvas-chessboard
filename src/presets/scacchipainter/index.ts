@@ -2,7 +2,7 @@ import { FigurineConfig } from "../../canvasChessBoard";
 export function GetConfig(): FigurineConfig {
   return {
     fontFamily: "ScacchiPainter",
-    fontSize: 0.9,
+    fontSize: 0.95,
     white: {
       a: "w_a",
       b: "w_b",

@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2018",
+    "outDir": "../modules/es2018",
+    "tsBuildInfoFile": "../tmp/es2018.build.info"
+  }
+}
