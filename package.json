@@ -1,6 +1,6 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "bugs": {
     "url": "https://github.com/dardino/canvas-chessboard"
   },
@@ -27,7 +27,9 @@
     "modules"
   ],
   "author": {
-    "name": "Gabriele Brunori"
+    "name": "Gabriele Brunori",
+    "email": "ganori80@gmail.com",
+    "url": "https://github.com/dardino"
   },
   "repository": {
     "url": "https://github.com/dardino/canvas-chessboard.git",
