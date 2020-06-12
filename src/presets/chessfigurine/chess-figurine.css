@@ -7,6 +7,6 @@
       url('./chess-figurine.svg') format('svg'),
       url('./chess-figurine.woff2') format('woff2');
 }
-.chess-icon {
+.chess-figurine {
   font-family: chess-figurine;
 }

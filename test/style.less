@@ -1,5 +1,23 @@
+@import "../src/presets/problemiste/Problemiste.scss";
+@import "../src/presets/scacchipainter/ScacchiPainter.scss";
+@import "../src/presets/chessfigurine/chess-figurine.css";
+
+html {
+  font-family: "ScacchiPainter";
+}
+
 h1, h2 {
-  font-family: Lato;
+  font-family: "Problemiste";
+}
+
+.chessBoard {
+  border: solid 1px black;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: "chess-figurine";
 }
 
 .main {
