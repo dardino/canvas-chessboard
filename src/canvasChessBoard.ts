@@ -105,11 +105,11 @@ export enum Rotations {
   NoRotation = 0, //     ↑
   TopRight = 45, //      ↗
   Right = 90, //         →
-  BottomRight = 215, //  ↘
+  BottomRight = 135, //  ↘
   UpsideDown = 180, //   ↓
-  BottomLeft = -215, //  ↙
+  BottomLeft = -135, //  ↙
   Left = -90, //         ←
-  TopLeft = -45, //       ↖
+  TopLeft = -45, //      ↖
 }
 
 export class CanvasChessBoard {
@@ -242,6 +242,7 @@ export class CanvasChessBoard {
   }
 
   private applyToOriginal() {
+    if (this.original.height === 0 || this.original.width === 0) return;
     const ctxo = this.original.getContext("2d");
     if (ctxo == null) return;
     ctxo.drawImage(
