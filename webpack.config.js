@@ -10,10 +10,14 @@ module.exports = {
   devtool:
     process.env.NODE_ENV == "production" ? undefined : "inline-source-map",
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
     port: 8080,
     hot: true,
-    overlay: true,
+    client: {
+      overlay: true,
+    },
   },
   entry: {
     canvasChessBoard: "./src/canvasChessBoard.ts",
@@ -29,23 +33,19 @@ module.exports = {
       patterns: [
         {
           from: "./src/presets/**/*.scss",
-          to: "../dist/fonts/",
-          flatten: true,
+          to: "fonts/[name][ext]",
         },
         {
           from: "./src/presets/**/*.ttf",
-          to: "../dist/fonts/",
-          flatten: true,
+          to: "fonts/[name][ext]",
         },
         {
           from: "./src/presets/**/*.woff*",
-          to: "../dist/fonts/",
-          flatten: true,
+          to: "fonts/[name][ext]",
         },
         {
           from: "./src/presets/**/*.otf",
-          to: "../dist/fonts/",
-          flatten: true,
+          to: "fonts/[name][ext]",
         },
       ],
     }),
@@ -67,15 +67,10 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: ".",
-            },
-          },
-        ],
+        type: "asset/resource",
+        generator: {
+          filename: "[name][ext]",
+        },
       },
       {
         test: /\.(le|c)ss$/,
