@@ -1,6 +1,6 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "bugs": {
     "url": "https://github.com/dardino/canvas-chessboard"
   },
@@ -20,6 +20,11 @@
       "import": "./modules/esnext/canvasChessBoard.js",
       "require": "./dist/canvasChessBoard.js",
       "types": "./modules/esnext/canvasChessBoard.d.ts"
+    },
+    "./presets": {
+      "import": "./modules/esnext/presets/index.js",
+      "require": "./dist/presets.js",
+      "types": "./modules/esnext/presets/index.d.ts"
     }
   },
   "keywords": [
