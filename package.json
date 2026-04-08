@@ -1,6 +1,6 @@
 {
   "name": "canvas-chessboard",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "bugs": {
     "url": "https://github.com/dardino/canvas-chessboard"
   },
@@ -15,6 +15,13 @@
   "license": "MIT",
   "description": "Chessboard drawable into HTML5 canvas",
   "typings": "./modules/esnext/",
+  "exports": {
+    ".": {
+      "import": "./modules/esnext/canvasChessBoard.js",
+      "require": "./dist/canvasChessBoard.js",
+      "types": "./modules/esnext/canvasChessBoard.d.ts"
+    }
+  },
   "keywords": [
     "chess",
     "canvas",
